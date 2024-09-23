@@ -1,0 +1,37 @@
+Quicksort Algorithm: Implementation, Analysis, and Randomization
+1. Introduction
+One of the most used sorting algorithms in computer science, Quicksort can handle huge datasets with ease and efficiency. Partitioning the array around a pivot and iteratively sorting the subarrays is the divide-and-conquer technique. In this task, you will learn about Quicksort in two different flavors: deterministic and randomized. Using random, sorted, and reverse-sorted input arrays, we evaluate their performance, space complexity, and time complexity. Upon finishing this report, you will possess a solid grasp of Quicksort's inner workings, its theoretical evaluation, and the ways in which randomization might enhance performance.
+2. Quicksort Implementation
+2.1 Deterministic Quicksort
+For any given array, the deterministic Quicksort algorithm chooses one element in the center as its pivot and then divides the array into two parts: those with values less than the pivot and those with values larger than it. The subarrays are thereafter subjected to the algorithm in a recursive fashion. The steps are broken down as follows:
+The first step is to choose one element in the center of the array to use as a pivot.
+•	Partitioning: An array with items less than the pivot is split into an array with elements larger than the pivot, and vice versa, according to the pivot.
+•	Recursive sorting involves applying the Quicksort algorithm to the two subarrays in a recursive fashion.
+•	As a starting point, we sort arrays and return them if they contain one or zero members.
+2.2 Randomized Quicksort
+Instead of utilizing a fixed location for the pivot, the randomized version of Quicksort uses the array to randomly choose one, which increases the algorithm's average performance. On average, this makes the partition more balanced, which lowers the probability of achieving the worst-case performance.
+3. Time Complexity Analysis
+3.1 Best Case Time Complexity
+At each stage, the pivot should split the array in half, ideally. The recursion tree is O(log⁑n)O(\log n)O(logn) tall, and each partitioning step takes O(n)O(n)O(n) time. Hence, the best-case time complexity is O(nlog⁡n)O(n \log n)O(nlogn).
+3.2 Average Case Time Complexity
+On average, the pivot divides the array into two subarrays of roughly equal size. This means the array is split in half at each recursion step, with nnn comparisons per level, leading to a time complexity of O(nlog⁡n)O(n \log n)O(nlogn).
+3.3 Worst Case Time Complexity
+In the worst-case scenario, the pivot is the smallest or largest element, causing one partition to have n−1n-1n−1 elements and the other to have 0 elements. This results in a recursion depth of O(n)O(n)O(n), with each level performing O(n)O(n)O(n) operations, leading to a worst-case time complexity of O(n2)O(n^2)O(n2).
+3.4 Space Complexity
+In-place Quicksort: If we modify the algorithm to sort in place, the space complexity is O(log⁡n)O(\log n)O(logn) due to the recursion stack depth.
+Non-in-place Quicksort: In the above implementation, the space complexity is O(n)O(n)O(n) as new lists are created for each recursive call.
+4. Randomized Quicksort
+4.1 Randomization Impact
+As a result of its random pivot selection, Randomized Quicksort makes it less likely that worst-case inputs (such as sorted or reverse-sorted arrays) would be encountered again. On average, the algorithm's temporal complexity is O(nlog⁡n)O(n \log n)O(nlogn), although this randomization makes sure that it avoids imbalanced partitions in most circumstances.
+4.2 Time Complexity
+Randomized Quicksort has the same average and best-case time complexity as deterministic Quicksort (O(nlog⁡n)O(n \log n)O(nlogn)), but it greatly decreases the probability of experiencing the worst-case performance of O(n2)O(n^2)O(n2).
+5. Empirical Analysis
+5.3 Discussion
+The empirical results align with our theoretical analysis:
+On random and sorted arrays, both versions perform similarly with a time complexity close to O(nlog⁡n)O(n \log n)O(nlogn).
+On reverse-sorted arrays, the deterministic version exhibits significantly worse performance, consistent with its O(n2)O(n^2)O(n2) worst-case behavior. However, the randomized version performs much better due to the reduced likelihood of encountering poor pivot choices.
+Randomized Quicksort shows a consistent performance advantage in situations where deterministic Quicksort suffers from worst-case scenarios.
+Conclusion
+To sum up, Quicksort is still an effective and strong sorting algorithm, particularly when its randomized version is used to reduce the possibility of worst-case performance. Although it is efficient in most circumstances, the deterministic variant may struggle with input arrays that are very ordered. By choosing a pivot at random, Randomized Quicksort avoids these worst-case situations and guarantees improved performance overall. 
+Both versions are great for practical uses like search algorithms and large-scale data processing because they strike a good mix between ease of use and speed. This project helped us learn the ins and outs of algorithm optimization and design, which will be useful for any future work we do in software engineering or software development. 
+
